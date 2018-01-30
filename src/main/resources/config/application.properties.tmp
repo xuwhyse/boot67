@@ -1,0 +1,2 @@
+#/config包下的配置文件优于根目录下
+spring.profiles.active=ENV

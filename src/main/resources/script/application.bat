@@ -1,0 +1,1 @@
+java -Xms512M -Xmx512M -cp lib/* antsc.Application > log.log 2>&1 &

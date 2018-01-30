@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration
+		PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+		"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<!-- 自动生成代码，只加了mybatis2个包和plugin,再加上这个文件的配置就行，不依赖其他信息 mybatis-generator:generate -->
+	<!-- !!!! Driver Class Path !!!! -->
+	<classPathEntry
+			location="E:\.m2\repository\mysql\mysql-connector-java\5.1.27\mysql-connector-java-5.1.27.jar" />
+
+	<context id="context" defaultModelType="flat" targetRuntime="MyBatis3">
+
+		<property name="javaFileEncoding" value="UTF-8"/>
+		
+		<plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin" />
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+		<!--支持分页-->
+		<plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"/>
+		
+		<commentGenerator
+			type="cn.hkfdt.mybatis.comment.generator.HkfdtCommentGenerator">
+			<property name="javaFileEncoding" value="UTF-8" />
+			<property name="suppressAllComments" value="true" />
+			<property name="suppressDate" value="true" />
+		</commentGenerator>
+
+		<!-- !!!! Database Configurations !!!! -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://192.168.4.152:3306/LTS_China" userId="tqt001"
+			password="tqt001" />
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!-- !!!! Model Configurations !!!! -->
+		<javaModelGenerator targetPackage="cn.hkfdt.xiaot.mybatis.model.ltschina"
+			targetProject="src/main/java">
+			<property name="enableSubPackages" value="false" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!-- !!!! Mapper XML Configurations !!!! -->
+		<sqlMapGenerator targetPackage="mapper.ltsChina"
+			targetProject="src/main/resources">
+			<property name="enableSubPackages" value="false" />
+		</sqlMapGenerator>
+
+		<!-- !!!! Mapper Interface Configurations !!!! -->
+		<javaClientGenerator targetPackage="cn.hkfdt.xiaot.mybatis.mapper.ltschina"
+			targetProject="src/main/java" type="XMLMAPPER">
+			<property name="enableSubPackages" value="false" />
+		</javaClientGenerator>
+
+		<!-- !!!! Table Configurations !!!! 
+		<table tableName="xiaot_force_analysis" enableCountByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			enableUpdateByExample="false" domainObjectName="ForceAnalysis">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+
+		-->
+
+
+		<!--<table tableName="xiaot_force_analysis" domainObjectName="ForceAnalysis">-->
+			<!--<property name="useActualColumnNames" value="true" />-->
+		<!--</table>-->
+
+		<!--<table tableName="xiaot_record"  domainObjectName="TRecord">-->
+		<!--<property name="useActualColumnNames" value="true" />-->
+		<!--<columnOverride column="actions" jdbcType="VARCHAR"  />-->
+		<!--</table>-->
+
+		<!--<table tableName="xiaot_questions"  domainObjectName="TQuestions">-->
+			<!--<property name="useActualColumnNames" value="true" />-->
+		<!--</table>-->
+
+		<!--<table tableName="AUTH"  domainObjectName="Auth">
+		<columnOverride column="serving_url" jdbcType="VARCHAR"  />
+		</table>
+		-->
+
+		<!--<table tableName="user_type"  domainObjectName="UserType">-->
+		<!--</table>-->
+
+		<!--<table tableName="school"  domainObjectName="School">-->
+		<!--<columnOverride column="en_name" jdbcType="VARCHAR"  />-->
+		<!--<columnOverride column="sc_name" jdbcType="VARCHAR"  />-->
+		<!--<columnOverride column="tc_name" jdbcType="VARCHAR"  />-->
+		<!--<columnOverride column="flag_url" jdbcType="VARCHAR"  />-->
+		<!--<columnOverride column="oss_flag_url" jdbcType="VARCHAR"  />-->
+		<!--<columnOverride column="group_id" jdbcType="VARCHAR"  />-->
+		<!--</table>-->
+
+		<!--<table tableName="xiaot_game"  domainObjectName="TGame">-->
+			<!--<property name="useActualColumnNames" value="true" />-->
+		<!--</table>-->
+		<table tableName="xiaot_questionsPre"  domainObjectName="TQuestionsPre">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+
+
+
+	</context>
+</generatorConfiguration>
