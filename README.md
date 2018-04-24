@@ -1,4 +1,4 @@
-# 技术方案编写规范&模板
+# 技术方案规范&模板
 
 画图工具推荐[Visual Paradigm](https://www.visual-paradigm.com/)(企业版收费，[社区版](https://www.visual-paradigm.com/download/community.jsp?platform=macosx&arch=jre)不收费), [yEd Graph Editor](http://www.yworks.com/products/yed)(免费)，[ProcessOn](https://www.processon.com/)(在线免费)。
 
@@ -167,25 +167,6 @@ select * from
 
 *举例*：
 
-#### 云豆特权测试消息
-* 使用场景：此消息发送了云豆特权的测试数据
-* 消息中间件：kafka
-* 依赖pom：
-
-```xml
-    <dependency>
-        <groupId>com.netease.music</groupId>
-        <artifactId>musician-cloudbean-api</artifactId>
-        <version>1.0</version>
-    </dependency>
-```
-
-* topic：musician_cloudbean_topic
-* key：test
-* 消息体类型：com.netease.music.musician.cloudbean.dto.CloudBeanInfoDto
-* 消息体解析方式：CloudBeanInfoDto cloudBeanInfoDto = CloudbeanMessageReaderUtil.readCloudBeanInfo(message);
-
----
 
 ## 风险控制
 *说明*：梳理系统的风险，提出需要采取的措施。
@@ -209,28 +190,13 @@ select * from
 
 **【强制】** 降级&切换场景描述
 
-**【强制】** 降级&切换使用的工具：[配置中心](http://config.netease.com/#/app)、[Setting](http://music.hz.netease.com/backend/authorize/setting?code=200)
-
+**【强制】** 降级&切换使用的工具：
 **【强制】** 降级&切换配置项
 
 **【强制】** 降级&切换配置项值含义
 
 *举例*：
-#### 歌单页的视频导流降级方案
-* 降级场景：用户或者运营反馈、发现线上问题、性能问题
-* 降级工具：Setting
-* 配置项：mock_related_setting
-* 配置项值及含义：
 
-```json
-{
-   "getFromMockData":"false", //总开关，关闭所有导流推荐
-   "demoteToRetuenEmptyForMaxSongSize":300, //歌单页最大歌曲数，小于这个数值的歌单进行导流视频拉取
-   "demoteToReturnEmptyListPercent":"0", //歌单页关闭百分比
-   "demoteArtistRcmdPercent":"100", //艺人页导流关闭百分比
-   "demoteToReturnEmptyListPercentForComment":0, //歌曲评论页导流关闭百分比
-   "cacheTime":3600000 //相关视频缓存有效时间
-}
 ```
 
 ## 开发计划
